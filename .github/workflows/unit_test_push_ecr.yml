@@ -40,8 +40,8 @@ jobs:
       - name: Build and Push Application Image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: group11-repo
-          IMAGE_TAG: appv1.1
+          ECR_REPOSITORY: clo835_flask_app
+          IMAGE_TAG: latest
         run: |
           cd webapp/
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile .
@@ -50,8 +50,8 @@ jobs:
       - name: Build and Push MySQL DB Image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: group11-repo
-          IMAGE_TAG: dbv1.0
+          ECR_REPOSITORY: clo835_mysql
+          IMAGE_TAG: latest
         run: |
           cd webapp/
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile_mysql .
