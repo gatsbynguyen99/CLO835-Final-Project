@@ -42,7 +42,7 @@ jobs:
       - name: Build and push webapp image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: clo835-flask-app
+          ECR_REPOSITORY: clo835_flask_app
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
